@@ -1,12 +1,15 @@
 :root {
-  --bg: #f2f6fb;
-  --surface: #ffffff;
-  --primary: #0f766e;
-  --primary-soft: #ccfbf1;
-  --text: #0f172a;
-  --muted: #475569;
-  --bot: #e2e8f0;
-  --user: #0f766e;
+  --bg-deep: #2f2620;
+  --bg-mid: #5a4634;
+  --bg-glow: #d9ba87;
+  --surface: rgba(250, 245, 236, 0.92);
+  --surface-border: rgba(86, 64, 43, 0.35);
+  --primary: #2e6f5d;
+  --primary-soft: #b9e2d5;
+  --text: #241b15;
+  --muted: #5d4b3f;
+  --bot: #d9d1c3;
+  --user: #2e6f5d;
 }
 
 * {
@@ -15,15 +18,46 @@
 
 body {
   margin: 0;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
   color: var(--text);
   background:
-    linear-gradient(rgba(241, 245, 249, 0.86), rgba(241, 245, 249, 0.9)),
-    url("/graduate_bg.svg") center / cover no-repeat fixed;
+    radial-gradient(circle at 50% 8%, rgba(227, 196, 141, 0.34), transparent 32%),
+    linear-gradient(180deg, #4c3a2b 0%, #2d231d 58%, #231a15 100%);
 }
 
 .page {
+  position: relative;
   min-height: 100vh;
+  overflow: hidden;
+}
+
+.page::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    repeating-linear-gradient(
+      90deg,
+      rgba(99, 75, 52, 0.6) 0,
+      rgba(99, 75, 52, 0.6) 46px,
+      rgba(131, 100, 72, 0.65) 46px,
+      rgba(131, 100, 72, 0.65) 60px,
+      rgba(82, 63, 45, 0.6) 60px,
+      rgba(82, 63, 45, 0.6) 98px
+    ),
+    linear-gradient(180deg, rgba(66, 49, 35, 0.92), rgba(43, 31, 22, 0.92));
+  opacity: 0.65;
+  z-index: -2;
+}
+
+.page::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 50% 10%, rgba(255, 226, 173, 0.3), transparent 35%),
+    linear-gradient(180deg, rgba(24, 19, 15, 0.12), rgba(24, 19, 15, 0.45));
+  z-index: -1;
 }
 
 .navbar {
@@ -31,8 +65,8 @@ body {
   align-items: center;
   justify-content: center;
   height: 72px;
-  background: rgba(255, 255, 255, 0.9);
-  border-bottom: 1px solid #d6deea;
+  background: rgba(34, 25, 18, 0.78);
+  border-bottom: 1px solid rgba(219, 185, 132, 0.24);
   backdrop-filter: blur(4px);
 }
 
@@ -51,6 +85,7 @@ body {
 .brand-title {
   font-size: 1.05rem;
   font-weight: 700;
+  color: #f4ead9;
 }
 
 .main-content {
@@ -62,20 +97,22 @@ body {
 .hero h1 {
   margin: 0;
   font-size: 2rem;
+  color: #f3e7d4;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.34);
 }
 
 .hero p {
   margin-top: 8px;
-  color: var(--muted);
+  color: #dec6a9;
 }
 
 .chatbox {
   margin-top: 20px;
-  background: rgba(255, 255, 255, 0.9);
-  border: 1px solid #d6deea;
+  background: var(--surface);
+  border: 1px solid var(--surface-border);
   border-radius: 16px;
   padding: 16px;
-  box-shadow: 0 10px 22px rgba(15, 23, 42, 0.08);
+  box-shadow: 0 14px 34px rgba(16, 12, 8, 0.32);
 }
 
 .messages {
@@ -120,9 +157,10 @@ body {
 .chat-input {
   flex: 1;
   padding: 12px;
-  border: 1px solid #cfd8e3;
+  border: 1px solid #bda88d;
   border-radius: 12px;
   font-size: 1rem;
+  background: rgba(255, 251, 244, 0.96);
 }
 
 .chat-input:focus {
@@ -150,6 +188,7 @@ body {
     opacity: 0;
     transform: translateY(4px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -157,15 +196,15 @@ body {
 }
 
 @media (max-width: 640px) {
-  body {
-    background-attachment: scroll;
-  }
-
   .hero h1 {
     font-size: 1.5rem;
   }
 
   .message {
     max-width: 92%;
+  }
+
+  .page::before {
+    opacity: 0.55;
   }
 }

@@ -40,14 +40,18 @@ py -m uvicorn app.main:app --host 127.0.0.1 --port 8002 --reload
 
 ## Environment Variables
 
-- `OPENAI_API_KEY` optional; when set, LLM answers are generated via OpenAI
+- `LLM_PROVIDER` optional; `openai` (default) or `huggingface`
+- `OPENAI_API_KEY` optional; required when `LLM_PROVIDER=openai`
 - `OPENAI_MODEL` optional; default `gpt-4o-mini`
+- `HF_API_TOKEN` optional; required when `LLM_PROVIDER=huggingface`
+- `HF_MODEL` optional; default `mistralai/Mistral-7B-Instruct-v0.3`
 - `EMBEDDING_MODEL` optional; default `sentence-transformers/all-MiniLM-L6-v2`
 
 ## Notes
 
 - If `sentence-transformers` is not installed, embedding/query vectors fall back to deterministic hash vectors.
 - If FAISS is unavailable or index is missing, retrieval falls back to keyword ranking.
+- If LLM provider credentials are missing or provider errors occur, API falls back to retrieval-only response.
 
 ## Tests
 

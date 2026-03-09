@@ -6,4 +6,5 @@ httpx
 numpy
 pandas
 openai
+huggingface_hub
 faiss-cpu
