@@ -1,0 +1,7 @@
+{
+  "source": "C:\\Users\\brind\\OneDrive\\Desktop\\Jobschatbot\\backend\\data\\cleaned\\jobs_cleaned.csv",
+  "count": 78,
+  "dimension": 256,
+  "model": "sentence-transformers/all-MiniLM-L6-v2",
+  "backend": "fallback-hash"
+}

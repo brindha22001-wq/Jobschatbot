@@ -1,0 +1,7 @@
+{
+  "backend": "faiss",
+  "count": 78,
+  "dimension": 256,
+  "embedding_source": "C:\\Users\\brind\\OneDrive\\Desktop\\Jobschatbot\\backend\\data\\cleaned\\jobs_cleaned.csv",
+  "embedding_model": "sentence-transformers/all-MiniLM-L6-v2"
+}

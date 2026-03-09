@@ -12,3 +12,4 @@ if __name__ == "__main__":
     index_path = build_vector_db()
     print(f"Embeddings saved at: {embeddings_path}")
     print(f"Vector index saved at: {index_path}")
+    print("RAG assets generated successfully.")
