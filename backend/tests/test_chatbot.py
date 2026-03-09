@@ -11,6 +11,14 @@ from app.main import app
 client = TestClient(app)
 
 
+def test_root_message() -> None:
+    response = client.get("/")
+    assert response.status_code == 200
+    body = response.json()
+    assert body["status"] == "ok"
+    assert "running successfully" in body["message"].lower()
+
+
 def test_health() -> None:
     response = client.get("/health")
     assert response.status_code == 200

@@ -1,3 +1,8 @@
+from pathlib import Path
+import sys
+
+sys.path.append(str(Path(__file__).resolve().parents[1]))
+
 from app.embeddings.create_embeddings import create_embeddings
 from app.vectorstore.build_vector_db import build_vector_db
 
