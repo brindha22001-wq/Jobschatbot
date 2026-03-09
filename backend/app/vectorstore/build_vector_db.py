@@ -1,7 +1,8 @@
 from pathlib import Path
 
 
-INDEX_PATH = Path("backend/data/vector_db/faiss_index/index.bin")
+BACKEND_ROOT = Path(__file__).resolve().parents[2]
+INDEX_PATH = BACKEND_ROOT / "data" / "vector_db" / "faiss_index" / "index.bin"
 
 
 def build_vector_db() -> Path:

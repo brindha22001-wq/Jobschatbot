@@ -2,7 +2,8 @@ import csv
 from pathlib import Path
 
 
-RAW_DATA_PATH = Path("backend/data/raw/jobs_raw.csv")
+BACKEND_ROOT = Path(__file__).resolve().parents[2]
+RAW_DATA_PATH = BACKEND_ROOT / "data" / "raw" / "jobs_raw.csv"
 
 
 def scrape_jobs() -> Path:
